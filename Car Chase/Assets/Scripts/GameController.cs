@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
     public GameObject collectable;
+    private List<GameObject> policeCars = new List<GameObject>();
 
     public Transform spawnLimitRight;
     public Transform spawnLimitLeft;
@@ -44,6 +47,21 @@ public class GameController : MonoBehaviour {
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+
+        var pcars = GameObject.FindGameObjectsWithTag("Seeker");
+        if (pcars == null)
+        {
+            Debug.Log("Can't find any Police Car game objects!!!");
+        }
+        else
+        {
+            foreach (var item in pcars)
+            {
+                policeCars.Add(item);
+            }
+        }
+        
+        
 
         score = 0;
         UpdateScore();
@@ -97,6 +115,13 @@ public class GameController : MonoBehaviour {
         {
             score += points;
             UpdateScore();
+            foreach (var car in policeCars)
+            {
+                ExecuteEvents.Execute<IAdjustDifficulty>(car, null, (x, y) => x.AdjustDifficulty(points));
+                //Debug.Log("ExecuteEvents.Execute<IAdjustDifficulty> called");
+            }
+            
+            
         }
     }
 

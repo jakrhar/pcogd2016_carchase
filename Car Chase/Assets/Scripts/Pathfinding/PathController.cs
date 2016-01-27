@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class PathController : MonoBehaviour {
+public class PathController : MonoBehaviour, IAdjustDifficulty
+{
 
     public Transform target;
 	public Transform[] targets;
 
+    private int difficultyLevel = 1;
 
-	public float maxSpeed = 25;
+    public float maxSpeed = 25;
     public float forceMultiplier = 1.0f;
     public float minForce = 10;
     public float maxForce = 100;
@@ -82,7 +85,7 @@ public class PathController : MonoBehaviour {
                 currentWayPoint = path[targetIndex];
             }
 
-            if (rb.velocity.magnitude < maxSpeed)
+            if (rb.velocity.magnitude < maxSpeed + difficultyLevel)
             {
                 var forceDirection =
                     new Vector3(currentWayPoint.x - transform.position.x, 0, currentWayPoint.z - transform.position.z)*
@@ -169,11 +172,48 @@ public class PathController : MonoBehaviour {
             int tmp = 0;
             do
             {
-                tmp = Random.Range(1, targets.Length - 1);
+                tmp = UnityEngine.Random.Range(1, targets.Length - 1);
             }
             while (tmp == nextTarget);
 
             nextControlPoint = nextTarget = tmp;
+        }
+    }
+
+    //implementation of IAdjustDifficulty interface methods
+
+    /// <summary>
+    /// Increases the maximun speed if the police car when difficulty is increased
+    /// </summary>
+    /// <param name="percentage"></param>
+    public void AdjustDifficulty(int percentage)
+    {
+        difficultyLevel += percentage;
+        //Debug.Log("Police car maxSpeed adjusted" + percentage);
+        CheckDifficultyBoundaries();
+
+    }
+
+    /// <summary>
+    /// Sets the difficultu level, adjust the maximun speed of the police car
+    /// </summary>
+    /// <param name="percentage"></param>
+    public void SetDifficultyLevel(int percentage)
+    {
+        difficultyLevel += percentage;
+        CheckDifficultyBoundaries();
+    }
+
+    private void CheckDifficultyBoundaries()
+    {
+        if (difficultyLevel < 0)
+        {
+            difficultyLevel = 0;
+        }
+
+        if (difficultyLevel > 100)
+        {
+            difficultyLevel = 100;
         }
     }
 
