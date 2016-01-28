@@ -9,7 +9,7 @@ public class PathController : MonoBehaviour, IAdjustDifficulty
 	public Transform[] targets;
 
     private int difficultyLevel = 1;
-
+    public float maxDifficultySpeedIncrease = 300.0f;
     public float maxSpeed = 25;
     public float forceMultiplier = 1.0f;
     public float minForce = 10;
@@ -85,7 +85,7 @@ public class PathController : MonoBehaviour, IAdjustDifficulty
                 currentWayPoint = path[targetIndex];
             }
 
-            if (rb.velocity.magnitude < maxSpeed + difficultyLevel)
+            if (rb.velocity.magnitude < maxSpeed + difficultyLevel * 0.01 * maxDifficultySpeedIncrease)
             {
                 var forceDirection =
                     new Vector3(currentWayPoint.x - transform.position.x, 0, currentWayPoint.z - transform.position.z)*
@@ -200,7 +200,7 @@ public class PathController : MonoBehaviour, IAdjustDifficulty
     /// <param name="percentage"></param>
     public void SetDifficultyLevel(int percentage)
     {
-        difficultyLevel += percentage;
+        difficultyLevel = percentage;
         CheckDifficultyBoundaries();
     }
 
