@@ -8,6 +8,9 @@ TagManager:
   - Seeker
   - Light
   - PatrolPoint
+  - Name
+  - Leaderboard
+  - NameInput
   layers:
   - Default
   - TransparentFX
