@@ -3,14 +3,14 @@ using System.Collections;
 
 public class SirenController : MonoBehaviour {
 
-    private PathController target;
+    private PoliceCarController target;
     private AudioSource sirenClip;
 
     // Use this for initialization
 
     void Start()
     {
-        target = GetComponent<PathController>();
+        target = GetComponent<PoliceCarController>();
         sirenClip = GetComponent<AudioSource>();
     }
 
