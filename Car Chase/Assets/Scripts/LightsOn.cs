@@ -2,12 +2,13 @@
 using System.Collections;
 
 public class LightsOn : MonoBehaviour {
-	public PathController target;
+	private PoliceCarController target;
 	public float flickeringFreq=0.5f;
     
 	IEnumerator Start ()
 	{
-
+        target = gameObject.GetComponentInParent<PoliceCarController>();
+        
         while (true)
 		{
 			if( !target.patrolMode)

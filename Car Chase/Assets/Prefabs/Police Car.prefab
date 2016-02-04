@@ -10,12 +10,12 @@ GameObject:
   - 4: {fileID: 466808}
   - 33: {fileID: 3396734}
   - 23: {fileID: 2304100}
-  - 114: {fileID: 11496612}
   - 54: {fileID: 5479676}
   - 114: {fileID: 11460650}
   - 65: {fileID: 6587122}
   - 82: {fileID: 8223504}
   - 114: {fileID: 11467254}
+  - 114: {fileID: 11472668}
   m_Layer: 0
   m_Name: Police Car
   m_TagString: Seeker
@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f6403b61a429447bcc6e32a767dd31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 11496612}
   flickeringFreq: 0.5
 --- !u!114 &11460650
 MonoBehaviour:
@@ -267,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99e4e7344d6273448b67764dbd2ee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11496612
+--- !u!114 &11472668
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -275,7 +274,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 110224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af7be3ca1f83f04992a1710af72efa6, type: 3}
+  m_Script: {fileID: 11500000, guid: eca02186cb46e3a45be8dc12379bb616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
@@ -286,17 +285,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  maxSpeed: 25
-  forceMultiplier: 50
-  minForce: 200
-  maxForce: 300
-  maxTurningSpeed: 6
+  maxDifficultySpeedIncrease: 100
+  maxSpeed: 50
+  maxTurningSpeed: 15
+  waypointDistance: 1
   patrolMode: 1
   radarDistance: 100
-  chasingDistance: 120
+  chasingDistance: 150
   roofLight: {fileID: 0}
-  pathFindingIntervalInSeconds: 0.4
-  DrawPathGizmos: 1
+  pathFindingIntervalInSeconds: 0.5
+  DrawPathGizmos: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -304,6 +302,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: targets.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 1
@@ -335,6 +337,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDifficultySpeedIncrease
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxTurningSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: waypointDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
