@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
-public class Grid : MonoBehaviour {
+public class Grid : MonoBehaviour, IGridInformation
+{
 
     public bool DisplayGridGizmos;
     public LayerMask PermittedAreaMask;
@@ -30,6 +32,8 @@ public class Grid : MonoBehaviour {
     {
         get { return gridSizeX * gridSizeY; }
     }
+
+    
 
     public List<Node> GetNeighbours(Node node)
     {
@@ -138,5 +142,54 @@ public class Grid : MonoBehaviour {
 			}
 		}
 	}
+
+    //implementation for IGridInformation interface
+    Vector2 IGridInformation.WorldSize
+    {
+        get
+        {
+            return GridWorldSize;
+        }
+    }
+
+    float IGridInformation.NodeRadius
+    {
+        get
+        {
+            return NodeRadius;
+        }
+    }
+
+    int IGridInformation.ExtraCostThicknes
+    {
+        get
+        {
+            return extraCostThicknes;
+        }
+    }
+
+    int IGridInformation.Width
+    {
+        get
+        {
+            return GridSizeX;
+        }
+    }
+
+    int IGridInformation.Heigth
+    {
+        get
+        {
+            return GridSizeY;
+        }
+    }
+
+    Node[,] IGridInformation.Nodes
+    {
+        get
+        {
+            return PathfindingGrid;
+        }
+    }
 }
 

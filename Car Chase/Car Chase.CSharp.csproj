@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\PathControllerCivilian.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\Grid.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\Heap.cs" />
+    <Compile Include="Assets\Scripts\Pathfinding\IGridInformation.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\Node.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathController.cs" />
     <Compile Include="Assets\Scripts\Pathfinding\PathControllerCivil.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SeekerController.cs" />
     <Compile Include="Assets\Scripts\SirenController.cs" />
+    <Compile Include="Assets\Scripts\SpawningPosition.cs" />
     <Compile Include="Assets\leaderboard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

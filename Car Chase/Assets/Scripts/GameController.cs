@@ -31,8 +31,17 @@ public class GameController : MonoBehaviour {
     private float limitUp = 1;
     private float limitDown = 1;
 
+    private SpawningPosition spawningPosition;
+
     void Start()
     {
+        
+    }
+
+    void Awake()
+    {
+        spawningPosition = GetComponent<SpawningPosition>();
+
         if (spawnLimitRight == null) print("spawnLimitRight not set!");
         if (spawnLimitLeft == null) print("spawnLimitLeft not set!");
         if (spawnLimitUp == null) print("spawnLimitUp not set!");
@@ -60,8 +69,8 @@ public class GameController : MonoBehaviour {
                 policeCars.Add(item);
             }
         }
-        
-        
+
+        spawningPosition = GetComponent<SpawningPosition>();
 
         score = 0;
         UpdateScore();
@@ -91,7 +100,7 @@ public class GameController : MonoBehaviour {
         {
             for (int i = 0; i < collectableCount; i++)
             {
-                Vector3 spawnPosition = new Vector3(Random.Range(limitLeft, limitRight), 1.0f, Random.Range(limitDown, limitUp));
+                Vector3 spawnPosition = spawningPosition.Next();//new Vector3(Random.Range(limitLeft, limitRight), 1.0f, Random.Range(limitDown, limitUp));
                 Quaternion spawnRotation = Quaternion.identity;
 
                 Instantiate(collectable, spawnPosition, spawnRotation);
