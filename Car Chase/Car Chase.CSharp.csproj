@@ -90,7 +90,9 @@
     <Compile Include="Assets\Scripts\Rotator.cs" />
     <Compile Include="Assets\Scripts\SeekerController.cs" />
     <Compile Include="Assets\Scripts\SirenController.cs" />
+    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\SpawningPosition.cs" />
+    <Compile Include="Assets\Scripts\SpeedCollectableController.cs" />
     <Compile Include="Assets\leaderboard.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

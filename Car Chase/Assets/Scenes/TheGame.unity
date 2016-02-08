@@ -587,6 +587,80 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 498702, guid: 6d42b23ad0f0f7f4ca7b8ca63c065bd0, type: 2}
   m_PrefabInternal: {fileID: 675528072}
+--- !u!1 &173142203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 173142206}
+  - 114: {fileID: 173142205}
+  - 114: {fileID: 173142204}
+  - 114: {fileID: 173142207}
+  m_Layer: 0
+  m_Name: DonutSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &173142204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173142203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379b7555590cade498b25fbf2163e3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yAxisSpawningValue: 1
+--- !u!114 &173142205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173142203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3807cd7fbc88b6643a21d5912ef6db5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectable: {fileID: 135066, guid: 39eeb63f7cf789544acd021c4ae32d15, type: 2}
+  collectableCount: 10
+  spawnWait: 2
+  startWait: 2
+  waveWait: 3
+--- !u!4 &173142206
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173142203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.869995, y: 1.5999985, z: -88.66}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+--- !u!114 &173142207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 173142203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3807cd7fbc88b6643a21d5912ef6db5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectable: {fileID: 122238, guid: ad3f8b70767b9bd4197da748547c4e74, type: 2}
+  collectableCount: 1
+  spawnWait: 1
+  startWait: 1
+  waveWait: 3
 --- !u!1 &199097677
 GameObject:
   m_ObjectHideFlags: 0
@@ -5567,15 +5641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59918f6cabf6c84fb434dbfc272a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable: {fileID: 135066, guid: 39eeb63f7cf789544acd021c4ae32d15, type: 2}
-  spawnLimitRight: {fileID: 136065849}
-  spawnLimitLeft: {fileID: 9789685}
-  spawnLimitUp: {fileID: 282324333}
-  spawnLimitDown: {fileID: 332493024}
-  collectableCount: 2
-  spawnWait: 3
-  startWait: 1
-  waveWait: 1
   scoreText: {fileID: 1026430077}
   restartText: {fileID: 939960571}
   gameOverText: {fileID: 1956328045}

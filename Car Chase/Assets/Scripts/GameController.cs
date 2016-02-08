@@ -4,54 +4,30 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
+
+/// <summary>
+/// This class is responsible for the handling the game state.
+/// </summary>
 public class GameController : MonoBehaviour {
 
-    public GameObject collectable;
     private List<GameObject> policeCars = new List<GameObject>();
 
-    public Transform spawnLimitRight;
-    public Transform spawnLimitLeft;
-    public Transform spawnLimitUp;
-    public Transform spawnLimitDown;
-
-    public int collectableCount;
-    public float spawnWait;
-    public float startWait;
-    public float waveWait;
     public Text scoreText;
     public Text restartText;
     public Text gameOverText;
+
+    public bool isGameOver { get { return gameOver; } }
 
     private int score;
     private bool gameOver;
     private bool restart;
 
-    private float limitRight = 1;
-    private float limitLeft = 1;
-    private float limitUp = 1;
-    private float limitDown = 1;
-
-    private SpawningPosition spawningPosition;
-
-    void Start()
-    {
-        
-    }
-
+    /// <summary>
+    /// Initializes the game.
+    /// Finds the policar instances and adds those to an array.
+    /// </summary>
     void Awake()
     {
-        spawningPosition = GetComponent<SpawningPosition>();
-
-        if (spawnLimitRight == null) print("spawnLimitRight not set!");
-        if (spawnLimitLeft == null) print("spawnLimitLeft not set!");
-        if (spawnLimitUp == null) print("spawnLimitUp not set!");
-        if (spawnLimitDown == null) print("spawnLimitDown not set!");
-
-        limitRight = spawnLimitRight.position.x;
-        limitLeft = spawnLimitLeft.position.x;
-        limitUp = spawnLimitUp.position.z;
-        limitDown = spawnLimitDown.position.z;
-
         gameOver = false;
         restart = false;
         restartText.text = "";
@@ -70,13 +46,13 @@ public class GameController : MonoBehaviour {
             }
         }
 
-        spawningPosition = GetComponent<SpawningPosition>();
-
         score = 0;
         UpdateScore();
-        StartCoroutine(SpawnWaves());
     }
 
+    /// <summary>
+    /// When game is over. Read key presses for game restart or exit.
+    /// </summary>
     void Update()
     {
         if (restart)
@@ -92,32 +68,11 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    IEnumerator SpawnWaves()
-    {
-        yield return new WaitForSeconds(startWait);
-
-        while (true)
-        {
-            for (int i = 0; i < collectableCount; i++)
-            {
-                Vector3 spawnPosition = spawningPosition.Next();//new Vector3(Random.Range(limitLeft, limitRight), 1.0f, Random.Range(limitDown, limitUp));
-                Quaternion spawnRotation = Quaternion.identity;
-
-                Instantiate(collectable, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
-            }
-
-            yield return new WaitForSeconds(waveWait);
-
-            if (gameOver)
-            {
-                restartText.text = "Press 'R' for restart the game or 'Q' for exit the game. ";
-                restart = true;
-                break;
-            }
-        }
-    }
-
+    /// <summary>
+    /// This method will add score for the user.
+    /// It will also increase the difficultu -> increase speed of police cars.
+    /// </summary>
+    /// <param name="points"></param>
     public void AddScore(int points)
     {
         if (!gameOver)
@@ -129,19 +84,25 @@ public class GameController : MonoBehaviour {
                 ExecuteEvents.Execute<IAdjustDifficulty>(car, null, (x, y) => x.AdjustDifficulty(points));
                 //Debug.Log("ExecuteEvents.Execute<IAdjustDifficulty> called");
             }
-            
-            
         }
     }
 
-    void UpdateScore()
+    /// <summary>
+    /// Updates the score to the UI.
+    /// </summary>
+    private void UpdateScore()
     {
         scoreText.text = "Score: " + score;
     }
 
+    /// <summary>
+    /// This method will end the game.
+    /// </summary>
     public void GameOver()
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
+        restartText.text = "Press 'R' for restart the game or 'Q' for exit the game. ";
+        restart = true;
     }
 }

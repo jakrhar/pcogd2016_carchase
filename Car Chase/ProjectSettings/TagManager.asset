@@ -12,6 +12,7 @@ TagManager:
   - Leaderboard
   - NameInput
   - A*
+  - SpeedDonut
   layers:
   - Default
   - TransparentFX
