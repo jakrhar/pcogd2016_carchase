@@ -78,6 +78,6 @@ public class SpawningPosition : MonoBehaviour {
     /// <returns></returns>
     public Vector3 Next()
     {
-        return spawningPositions[Random.Range(0, spawningPositions.Length - 1)];
+        return spawningPositions[Random.Range(0, spawningPositions.Length)];
     }
 }
