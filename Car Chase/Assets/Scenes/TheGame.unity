@@ -1385,6 +1385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_RootOrder: 3
 --- !u!1 &213397609
 GameObject:
@@ -1459,6 +1460,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 213397609}
+ 311ca223c40c7ece854376c645338049b22fa4a1
 --- !u!1001 &235074028
 Prefab:
   m_ObjectHideFlags: 0
