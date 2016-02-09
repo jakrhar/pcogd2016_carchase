@@ -3055,6 +3055,26 @@ Prefab:
       propertyPath: m_Size.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8264750, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264750, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479994, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479994, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxTurningSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11479994, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: waypointDistance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
