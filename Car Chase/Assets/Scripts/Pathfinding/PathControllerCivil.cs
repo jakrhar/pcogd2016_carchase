@@ -6,11 +6,10 @@ public class PathControllerCivil : MonoBehaviour {
     private Transform target;
     public Transform[] targets;
 
-    public float maxSpeed = 25;
-    public float forceMultiplier = 1.0f;
-    public float minForce = 10;
-    public float maxForce = 100;
-    public int maxTurningSpeed = 6;
+    public float maxSpeed = 25.0f;
+    public float maxTurningSpeed = 20.0f;
+    public float waypointDistance = 3.0f;
+    
     private int nextTarget = 1;
     
     public Light roofLight;
@@ -48,8 +47,9 @@ public class PathControllerCivil : MonoBehaviour {
     {
         if (pathSuccessfull)
         {
-            path = newPath;
+            
             StopCoroutine("FollowPath");
+            path = newPath;
 
             if (path.Length > 0)
             {
@@ -60,49 +60,70 @@ public class PathControllerCivil : MonoBehaviour {
 
     IEnumerator FollowPath()
     {
-        Vector3 currentWayPoint = path[0];
+        targetIndex = 0; //new path -> reset index
+
+        //find the waypoint that is closest to the object and set it as next
+        for (int i = 1; i < path.Length; i++)
+        {
+            if (Vector3.Distance(transform.position, path[targetIndex]) > Vector3.Distance(transform.position, path[i]))
+            {
+                targetIndex = i;
+            }
+        }
+
+        //if the found waypoint is further away than the police cars position from the end target
+        //update to the next index
+        if (Vector3.Distance(path[targetIndex], path[path.Length - 1]) > Vector3.Distance(transform.position, path[path.Length - 1]))
+        {
+            if (targetIndex < path.Length - 1)
+            {
+                targetIndex++;
+            }   
+        }
+
+        Vector3 currentWayPoint = path[targetIndex];
+
 
         while (true)
         {
-            if (transform.position == currentWayPoint)
+            //check if we are close to the target waypoint
+            if (waypointDistance > Vector3.Distance(transform.position, currentWayPoint))
+            //if (transform.position == currentWayPoint)
             {
-                targetIndex++;
+                targetIndex++; //update index to next waypoint
                 if (targetIndex >= path.Length)
                 {
                     yield break;
                 }
-
                 currentWayPoint = path[targetIndex];
             }
 
-            if (rb.velocity.magnitude < maxSpeed)
+            //stop if there are no waypoints left in the path
+            if (targetIndex >= path.Length)
             {
-                var forceDirection =
-                    new Vector3(currentWayPoint.x - transform.position.x, 0, currentWayPoint.z - transform.position.z) *
-                    forceMultiplier * Time.deltaTime;
+                yield break;
+            }
 
-                var magnitude = forceDirection.magnitude;
+            var speed = maxSpeed;
 
-                if (magnitude < minForce)
-                {
-                    forceDirection = forceDirection * (minForce / magnitude);
-                }
+            var moveDirection = new Vector3(currentWayPoint.x - transform.position.x, 0, currentWayPoint.z - transform.position.z);
+            moveDirection.Normalize();
+            moveDirection *= speed;
 
-                if (magnitude > maxForce)
-                {
-                    forceDirection = forceDirection * (magnitude / maxForce);
-                }
-                if (forceDirection != Vector3.zero)
+            if (moveDirection != Vector3.zero)
+            {
+                if (rb.velocity.magnitude > 5)
                 {
                     transform.rotation = Quaternion.Slerp(
-                        transform.rotation,
-                        Quaternion.LookRotation(forceDirection),
-                        Time.deltaTime * maxTurningSpeed
-                        );
+                                transform.rotation,
+                                Quaternion.LookRotation(rb.velocity * 20.0f),
+                                Time.deltaTime * maxTurningSpeed
+                                );
                 }
-                rb.AddForce(forceDirection);
             }
-            //transform.position = Vector3.MoveTowards(transform.position, currentWayPoint, speed * Time.deltaTime);
+
+            rb.AddForce(moveDirection);
+
             yield return null;
         }
     }

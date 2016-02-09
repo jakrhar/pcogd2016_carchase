@@ -197,7 +197,7 @@ public class PoliceCarController : MonoBehaviour, IAdjustDifficulty
             int tmp = 0;
             do
             {
-                tmp = UnityEngine.Random.Range(1, targets.Length);
+                tmp = UnityEngine.Random.Range(1, targets.Length - 1);
             }
             while (tmp == nextTarget);
 
