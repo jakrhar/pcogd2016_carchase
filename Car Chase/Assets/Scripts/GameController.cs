@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour {
     public Text restartText;
     public Text gameOverText;
 
+    private GameObject leaderboard;
+
     public bool isGameOver { get { return gameOver; } }
 
     private int score;
@@ -32,6 +34,8 @@ public class GameController : MonoBehaviour {
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
+
+        leaderboard = GameObject.FindGameObjectWithTag("Leaderboard");
 
         var pcars = GameObject.FindGameObjectsWithTag("Seeker");
         if (pcars == null)
@@ -51,7 +55,7 @@ public class GameController : MonoBehaviour {
     }
 
     /// <summary>
-    /// When game is over. Read key presses for game restart or exit.
+    /// When game is over. Read key presses for game restart or exit and leaderboard.
     /// </summary>
     void Update()
     {
@@ -65,6 +69,10 @@ public class GameController : MonoBehaviour {
             {
                 Application.Quit();
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            leaderboard.GetComponent<leaderboard>().ToggleLeaderboard();
         }
     }
 
@@ -102,7 +110,7 @@ public class GameController : MonoBehaviour {
     {
         gameOverText.text = "Game Over!";
         gameOver = true;
-        restartText.text = "Press 'R' for restart the game or 'Q' for exit the game. ";
+        restartText.text = "Press 'R' to restart the game or 'Q' to exit the game";
         restart = true;
     }
 }
