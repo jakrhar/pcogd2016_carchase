@@ -4,7 +4,8 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
 
-    public float Speed;
+    public float maxSpeed = 25.0f;
+    public float maxTurningSpeed = 20.0f;
 
     private Rigidbody rb;
     
@@ -15,11 +16,22 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        moveDirection.Normalize();
+        moveDirection *= maxSpeed;
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        if (moveDirection != Vector3.zero)
+        {
+            if (rb.velocity.magnitude > 1)
+            {
+                transform.rotation = Quaternion.Slerp(
+                            transform.rotation,
+                            Quaternion.LookRotation(rb.velocity * 20.0f),
+                            Time.deltaTime * maxTurningSpeed
+                            );
+            }
+        }
 
-        rb.AddForce(movement * Speed);
+        rb.AddForce(moveDirection);
     }
 }

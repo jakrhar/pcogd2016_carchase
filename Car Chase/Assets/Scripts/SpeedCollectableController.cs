@@ -14,7 +14,8 @@ public class SpeedCollectableController : MonoBehaviour
     private float time = 0.0f;
     private GameController gameController;
     //private PlayerController playerController;
-    private MovingCharacter playerController;
+    //private MovingCharacter playerController;
+    private PlayerMovement playerController;
     private bool isBoosting = false;
     private bool isInitialized = false;
 
@@ -46,11 +47,11 @@ public class SpeedCollectableController : MonoBehaviour
             GameObject player = GameObject.FindWithTag("Player");
             if (player != null)
             {
-                playerController = player.GetComponent<MovingCharacter>();
+                playerController = player.GetComponent<PlayerMovement>();
             }
             if (playerController == null)
             {
-                Debug.Log("Can't find playerController script!!!");
+                Debug.Log("Can't find PlayerMovement script!!!");
             }
 
             isInitialized = true;
@@ -86,11 +87,11 @@ public class SpeedCollectableController : MonoBehaviour
     IEnumerator SpeedBoost()
     {
         isBoosting = true;
-        playerController.speed += speedIncrease;
+        playerController.maxSpeed += speedIncrease;
 
         yield return new WaitForSeconds(boostTime);
 
-        playerController.speed -= speedIncrease;
+        playerController.maxSpeed -= speedIncrease;
         Object.Destroy(gameObject);
     }
 }
