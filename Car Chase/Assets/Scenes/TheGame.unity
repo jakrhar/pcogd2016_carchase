@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3807cd7fbc88b6643a21d5912ef6db5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable: {fileID: 135066, guid: 39eeb63f7cf789544acd021c4ae32d15, type: 2}
+  collectable: {fileID: 118500, guid: b32c0e39f067d984da47c3a327c886fc, type: 2}
   collectableCount: 10
   spawnWait: 2
   startWait: 2
@@ -1001,7 +1001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!114 &173142207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3807cd7fbc88b6643a21d5912ef6db5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectable: {fileID: 122238, guid: ad3f8b70767b9bd4197da748547c4e74, type: 2}
+  collectable: {fileID: 156650, guid: d35db5202f1d0aa47af61de351ddd915, type: 2}
   collectableCount: 1
   spawnWait: 1
   startWait: 1
