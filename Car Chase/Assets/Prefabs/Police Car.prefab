@@ -62,7 +62,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 106874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: -0.0050322027, y: 0.30592307, z: 1.1416955e-19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 191168}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
   m_LocalPosition: {x: 138.86, y: 0.02, z: 81.27}
-  m_LocalScale: {x: 4, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 412276}
   - {fileID: 434052}
@@ -104,7 +104,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 9e4a5ca12955712409787743759310ad, type: 2}
+  - {fileID: 2100000, guid: 4f206aaf5bc53134f86758e14fce4935, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -152,7 +152,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11, y: 0.53, z: 0.82}
+  m_Size: {x: 0.69, y: 0.53, z: 2.19}
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!82 &8255728
 AudioSource:
@@ -172,7 +172,7 @@ AudioSource:
   Spatialize: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 3.902893
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -255,7 +255,7 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 0.9925389, g: 0.98799217, b: 0.9852941, a: 1}
-  m_Intensity: 0.57
+  m_Intensity: 6.27
   m_Range: 100
   m_SpotAngle: 91
   m_CookieSize: 10
