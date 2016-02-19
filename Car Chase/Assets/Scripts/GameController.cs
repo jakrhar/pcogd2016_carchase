@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour {
     public Text restartText;
     public Text gameOverText;
 
-    private GameObject leaderboard;
+    private Leaderboard leaderboard;
 
     public bool isGameOver { get { return gameOver; } }
 
@@ -30,12 +30,13 @@ public class GameController : MonoBehaviour {
     /// </summary>
     void Awake()
     {
+        Time.timeScale = 1;
         gameOver = false;
         restart = false;
         restartText.text = "";
         gameOverText.text = "";
 
-        leaderboard = GameObject.FindGameObjectWithTag("Leaderboard");
+        leaderboard = GameObject.FindGameObjectWithTag("Leaderboard").GetComponent<Leaderboard>();
 
         var pcars = GameObject.FindGameObjectsWithTag("Seeker");
         if (pcars == null)
@@ -103,14 +104,22 @@ public class GameController : MonoBehaviour {
         scoreText.text = "Score: " + score;
     }
 
+    /// Return game score
+    public int GetScore(){
+        return score;
+    }
+
     /// <summary>
     /// This method will end the game.
     /// </summary>
     public void GameOver()
     {
+        Time.timeScale = 0;
         gameOverText.text = "Game Over!";
         gameOver = true;
         restartText.text = "Press 'R' to restart the game or 'Q' to exit the game";
         restart = true;
+
+        leaderboard.GetComponent<Leaderboard>().CompareScores(score);
     }
 }
