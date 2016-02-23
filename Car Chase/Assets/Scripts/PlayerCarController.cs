@@ -18,6 +18,9 @@ public class PlayerCarController : MonoBehaviour {
     public float brakeTorque = 100.0f;
     public float antiRoll = 20000.0f;
 
+    public float collisionBreakingTime = 1.5f;
+    public float collisionBreakingTimeTorque = 4000f;
+
     private Rigidbody rb;
 
     void Start ()
@@ -74,6 +77,38 @@ public class PlayerCarController : MonoBehaviour {
             WheelBackRight.brakeTorque = 0;
             WheelBackLeft.brakeTorque = 0;
         }
+    }
+
+    /// <summary>
+    /// When player hits something make the wheel break so it is easier to continue to move again. 
+    /// </summary>
+    /// <param name="other"></param>
+    void OnTriggerEnter(Collider other)
+    {
+        //if (other.tag == "Player" && !isBoosting)
+        {
+            //start the speed boost
+            StartCoroutine(Break());
+        }
+    }
+
+    /// <summary>
+    /// This method will increase the players speed temporarily. And then destroy the gameobject. 
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator Break()
+    {
+        WheelFrontRight.brakeTorque = collisionBreakingTimeTorque;
+        WheelFrontLeft.brakeTorque = collisionBreakingTimeTorque;
+        WheelBackRight.brakeTorque = collisionBreakingTimeTorque;
+        WheelBackLeft.brakeTorque = collisionBreakingTimeTorque;
+
+        yield return new WaitForSeconds(collisionBreakingTime);
+
+        WheelFrontRight.brakeTorque = 0;
+        WheelFrontLeft.brakeTorque = 0;
+        WheelBackRight.brakeTorque = 0;
+        WheelBackLeft.brakeTorque = 0;
     }
 
     void DoRollBar(WheelCollider wheelL, WheelCollider wheelR)

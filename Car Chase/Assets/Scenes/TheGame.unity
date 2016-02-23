@@ -997,7 +997,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!1 &219290430
 GameObject:
   m_ObjectHideFlags: 0
@@ -5974,17 +5974,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599954e8cc1dc604b8bb3744f6c64550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idealRpm: 500
-  maxRpm: 1200
+  idealRpm: 350
+  maxRpm: 900
   centerOfGravity: {fileID: 2077790697}
   WheelFrontLeft: {fileID: 351769299}
   WheelFrontRight: {fileID: 1067512585}
   WheelBackLeft: {fileID: 1411745419}
   WheelBackRight: {fileID: 371680368}
-  turnRadius: 15
+  turnRadius: 25
   torque: 1500
   brakeTorque: 3000
   antiRoll: 20000
+  collisionBreakingTime: 0.4
+  collisionBreakingTimeTorque: 6000
 --- !u!4 &1207414440 stripped
 Transform:
   m_PrefabParentObject: {fileID: 405558, guid: 4ae108afbf5ea3148a9d53283c782cfc, type: 2}
@@ -7955,6 +7957,14 @@ Prefab:
     - target: {fileID: 8267060, guid: 4ae108afbf5ea3148a9d53283c782cfc, type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543042, guid: 4ae108afbf5ea3148a9d53283c782cfc, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5486658, guid: 4ae108afbf5ea3148a9d53283c782cfc, type: 2}
+      propertyPath: m_Drag
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11440588, guid: 4ae108afbf5ea3148a9d53283c782cfc, type: 2}
