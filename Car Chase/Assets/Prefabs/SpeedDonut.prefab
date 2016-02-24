@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2cd402623fb4247ac4d527fee16d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedIncrease: 600
+  speedIncrease: 350
   boostTime: 10
   lifeTime: 10
 --- !u!135 &13501838
@@ -173,7 +173,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: speedIncrease
-      value: 600
+      value: 350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
