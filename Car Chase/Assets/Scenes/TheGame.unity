@@ -757,6 +757,10 @@ Prefab:
       propertyPath: m_Name
       value: Civil Car (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
   m_IsPrefabParent: 0
@@ -1260,6 +1264,10 @@ Prefab:
     - target: {fileID: 111262, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
       propertyPath: m_Name
       value: Civil Car (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
@@ -2845,6 +2853,10 @@ Prefab:
       propertyPath: m_Name
       value: Civil Car (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
   m_IsPrefabParent: 0
@@ -3200,6 +3212,10 @@ Prefab:
     - target: {fileID: 111262, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
       propertyPath: m_Name
       value: Civil Car (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
@@ -4034,6 +4050,10 @@ Prefab:
     - target: {fileID: 111262, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
       propertyPath: m_Name
       value: Civil Car (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
@@ -5910,6 +5930,10 @@ Prefab:
       propertyPath: targets.Array.data[4]
       value: 
       objectReference: {fileID: 761806242}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
   m_IsPrefabParent: 0
@@ -8613,6 +8637,10 @@ Prefab:
     - target: {fileID: 111262, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
       propertyPath: m_Name
       value: Civil Car (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492126, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}
+      propertyPath: maxSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ae6a20b86c362f4b8e68b81053a5c60, type: 2}

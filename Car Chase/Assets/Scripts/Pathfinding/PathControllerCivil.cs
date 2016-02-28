@@ -159,7 +159,7 @@ public class PathControllerCivil : MonoBehaviour {
             int tmp = 0;
             do
             {
-                tmp = Random.Range(0, targets.Length - 1);
+                tmp = UnityEngine.Random.Range(0, targets.Length);
             }
             while (tmp == nextTarget);
 
