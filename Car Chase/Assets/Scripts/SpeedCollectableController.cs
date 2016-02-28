@@ -14,9 +14,9 @@ public class SpeedCollectableController : MonoBehaviour
     private float time = 0.0f;
     private GameController gameController;
     //private PlayerController playerController;
-    //private MovingCharacter playerController;
+    private MovingCharacter playerController;
     //private PlayerMovement playerController;
-    private PlayerCarController playerController;
+    //private PlayerCarController playerController;
     private bool isBoosting = false;
     private bool isInitialized = false;
 
@@ -48,7 +48,7 @@ public class SpeedCollectableController : MonoBehaviour
             GameObject player = GameObject.FindWithTag("Player");
             if (player != null)
             {
-                playerController = player.GetComponent<PlayerCarController>();
+                playerController = player.GetComponent<MovingCharacter>();
             }
             if (playerController == null)
             {
@@ -88,11 +88,11 @@ public class SpeedCollectableController : MonoBehaviour
     IEnumerator SpeedBoost()
     {
         isBoosting = true;
-        playerController.maxRpm += speedIncrease;
+        playerController.speed += speedIncrease;
 
         yield return new WaitForSeconds(boostTime);
 
-        playerController.maxRpm -= speedIncrease;
+        playerController.speed -= speedIncrease;
         Object.Destroy(gameObject);
     }
 }

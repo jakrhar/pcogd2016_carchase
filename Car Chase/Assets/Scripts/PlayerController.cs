@@ -8,30 +8,35 @@ public class PlayerController : MonoBehaviour
     public float maxTurningSpeed = 20.0f;
 
     private Rigidbody rb;
-    
+    private Vector3 lastDirection = Vector3.down;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         var moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveDirection.Normalize();
         moveDirection *= maxSpeed;
 
-        if (moveDirection != Vector3.zero)
+        //transform.rotation = Quaternion.Slerp(
+        //                transform.rotation,
+        //                Quaternion.LookRotation(rb.velocity * 20.0f),
+        //                Time.deltaTime * maxTurningSpeed
+        //                );
+
+        if (!(moveDirection.x == 0 && moveDirection.z == 0))
         {
-            if (rb.velocity.magnitude > 1)
-            {
-                transform.rotation = Quaternion.Slerp(
-                            transform.rotation,
-                            Quaternion.LookRotation(rb.velocity * 20.0f),
-                            Time.deltaTime * maxTurningSpeed
-                            );
-            }
+            transform.rotation = Quaternion.LookRotation(moveDirection);
+            lastDirection = moveDirection;
+        }
+        else
+        {
+            transform.rotation = Quaternion.LookRotation(lastDirection);
         }
 
-        rb.AddForce(moveDirection);
+        transform.Translate(moveDirection * Time.deltaTime);
     }
 }

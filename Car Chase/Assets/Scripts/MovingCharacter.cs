@@ -8,15 +8,21 @@ public class MovingCharacter : MonoBehaviour
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
     private Vector3 velocityVector;
-    private Vector3 lastDirection = Vector3.down;
+    private Vector3 lastDirection = Vector3.forward;
+    private CharacterController controller;
+
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+    }
 
     void Update()
     {
-        CharacterController controller = GetComponent<CharacterController>();
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-           
+            moveDirection.Normalize();
+
             moveDirection *= speed;
             if (Input.GetButton("Jump"))
                 moveDirection.y = jumpSpeed;
