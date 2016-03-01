@@ -45,7 +45,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\NameInput.cs" />
      <Compile Include="Assets\Scripts\Camera2DFollow.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CollectableController.cs" />
@@ -53,7 +52,9 @@
      <Compile Include="Assets\Scripts\IAdjustDifficultu.cs" />
      <Compile Include="Assets\Scripts\Leaderboard.cs" />
      <Compile Include="Assets\Scripts\LightsOn.cs" />
+     <Compile Include="Assets\Scripts\MenuManager.cs" />
      <Compile Include="Assets\Scripts\MovingCharacter.cs" />
+     <Compile Include="Assets\Scripts\NameInput.cs" />
      <Compile Include="Assets\Scripts\PathControllerCivilian.cs" />
      <Compile Include="Assets\Scripts\Pathfinding\Grid.cs" />
      <Compile Include="Assets\Scripts\Pathfinding\Heap.cs" />
@@ -77,6 +78,7 @@
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\SpawningPosition.cs" />
      <Compile Include="Assets\Scripts\SpeedCollectableController.cs" />
+     <Compile Include="Assets\Scripts\UI_Manager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Ohjelmat/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
