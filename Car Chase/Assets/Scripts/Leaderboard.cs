@@ -11,18 +11,22 @@ public class Leaderboard : MonoBehaviour {
     public GameObject lb;
     public Text name1, name2, name3, name4, name5, name6, name7, name8, name9, name10;
     public Text score1, score2, score3, score4, score5, score6, score7, score8, score9, score10;
+	private GameObject highScoreInfo;
     public InputField nameInput;
     private string newName;
     private int newPos;
+	public GameObject gameOverMenu;
 
     // Use this for initialization
     void Start () {
         gamecontroller = GameObject.FindGameObjectWithTag("GameController");
+		highScoreInfo = GameObject.FindGameObjectWithTag ("HighScoreInfo");
 
         lb = this.gameObject;
         // Hide leaderboard initially
         lb.SetActive(false);
         // Hide name input field initially
+		highScoreInfo.SetActive(false);
         nameInput.gameObject.SetActive(false);
 
         // Load leaderboard content from files on game startup
@@ -177,10 +181,14 @@ public class Leaderboard : MonoBehaviour {
 
     // Hide/show the name input field
     public void ShowNameInput(){
+		gameOverMenu.SetActive (false);
+		highScoreInfo.SetActive (true);
         nameInput.gameObject.SetActive(true);
     }
     public void HideNameInput(){
+		highScoreInfo.SetActive (false);
         nameInput.gameObject.SetActive(false);
+		gameOverMenu.SetActive (true);
     }
 
     // Hide/show the leaderboard

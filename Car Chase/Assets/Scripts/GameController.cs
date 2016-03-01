@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
     public Text gameOverText;
 
     private Leaderboard leaderboard;
+	private GameObject GameOverMenu;
 
     public bool isGameOver { get { return gameOver; } }
 
@@ -37,6 +38,10 @@ public class GameController : MonoBehaviour {
         gameOverText.text = "";
 
         leaderboard = GameObject.FindGameObjectWithTag("Leaderboard").GetComponent<Leaderboard>();
+		GameOverMenu = GameObject.FindGameObjectWithTag ("GameOverMenu");
+
+		//Hide initially
+		GameOverMenu.SetActive (false);
 
         var pcars = GameObject.FindGameObjectsWithTag("Seeker");
         if (pcars == null)
@@ -60,17 +65,6 @@ public class GameController : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        if (restart)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                Application.Quit();
-            }
-        }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             leaderboard.GetComponent<Leaderboard>().ToggleLeaderboard();
@@ -120,6 +114,17 @@ public class GameController : MonoBehaviour {
         restartText.text = "Press 'R' to restart the game or 'Q' to exit the game";
         restart = true;
 
-        leaderboard.GetComponent<Leaderboard>().CompareScores(score);
+		//Show Game Over Menu
+		GameOverMenu.SetActive (true);
+
+		//See if player has scored a new high score
+		leaderboard.GetComponent<Leaderboard>().CompareScores(score);
+
     }
+	public void Restart(){
+		Application.LoadLevel(Application.loadedLevel);
+	}
+	public void QuitGame(){
+		Application.Quit();
+	}
 }

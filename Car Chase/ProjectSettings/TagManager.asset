@@ -13,6 +13,8 @@ TagManager:
   - NameInput
   - A*
   - SpeedDonut
+  - GameOverMenu
+  - HighScoreInfo
   layers:
   - Default
   - TransparentFX
