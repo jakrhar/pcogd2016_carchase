@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
     public string scoreDonutText = "Got a score donut! Points +";
 
     private Leaderboard leaderboard;
-    private GameObject GameOverMenu;
+    private GameObject gameOverMenu;
     private PopupSpawner popupSpawner;
 
     public bool isGameOver { get { return gameOver; } }
@@ -41,10 +41,11 @@ public class GameController : MonoBehaviour {
         gameOverText.text = "";
 
         leaderboard = GameObject.FindGameObjectWithTag("Leaderboard").GetComponent<Leaderboard>();
-	GameOverMenu = GameObject.FindGameObjectWithTag ("GameOverMenu");
+		gameOverMenu = GameObject.FindGameObjectWithTag ("GameOverMenu");
 
-	//Hide initially
-	GameOverMenu.SetActive (false);
+		//Hide initially
+		gameOverMenu.SetActive (false);
+
         popupSpawner = GameObject.FindGameObjectWithTag("PopupSpawner").GetComponent<PopupSpawner>();
 
         if (popupSpawner == null)
@@ -126,7 +127,7 @@ public class GameController : MonoBehaviour {
         restart = true;
 
 		//Show Game Over Menu
-		GameOverMenu.SetActive (true);
+		gameOverMenu.SetActive (true);
 
 		//See if player has scored a new high score
 		leaderboard.GetComponent<Leaderboard>().CompareScores(score);

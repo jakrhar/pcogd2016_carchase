@@ -68,6 +68,9 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PoliceCarController.cs" />
+     <Compile Include="Assets\Scripts\Popups\BoostPopup.cs" />
+     <Compile Include="Assets\Scripts\Popups\PopupMovement.cs" />
+     <Compile Include="Assets\Scripts\Popups\PopupSpawner.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SeekerController.cs" />
      <Compile Include="Assets\Scripts\SirenController.cs" />
