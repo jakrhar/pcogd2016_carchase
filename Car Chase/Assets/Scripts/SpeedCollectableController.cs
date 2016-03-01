@@ -20,12 +20,19 @@ public class SpeedCollectableController : MonoBehaviour
     private bool isBoosting = false;
     private bool isInitialized = false;
 
+    private PopupSpawner popupSpawner;
+
     /// <summary>
     /// Find game controller and player game objects
     /// </summary>
     void Awake()
     {
         
+    }
+
+    void Start()
+    {
+        popupSpawner = GameObject.FindGameObjectWithTag("PopupSpawner").GetComponent<PopupSpawner>();
     }
 
     /// <summary>
@@ -78,6 +85,9 @@ public class SpeedCollectableController : MonoBehaviour
              
             //start the speed boost
             StartCoroutine(SpeedBoost());
+
+            //show boost popup text
+            popupSpawner.InstantiateBoostPopup("Boost time: ", boostTime);
         }
     }
 

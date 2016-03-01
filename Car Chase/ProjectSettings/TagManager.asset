@@ -15,6 +15,7 @@ TagManager:
   - SpeedDonut
   - GameOverMenu
   - HighScoreInfo
+  - PopupSpawner
   layers:
   - Default
   - TransparentFX
