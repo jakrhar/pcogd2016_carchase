@@ -8,11 +8,11 @@ public class UI_Manager : MonoBehaviour {
 		private GameObject gameOverPanel;
 		// Use this for initialization
 		void Start () {
-			pausePanel = GameObject.Find("Pause_Panel");
+			pausePanel = GameObject.Find("PauseMenu");
 			pausePanel.SetActive(false); //disable pause menu at game start
 			
-			gameOverPanel = GameObject.Find("GameOver_Panel");
-			gameOverPanel.SetActive(false); //disable menu at game start
+			//gameOverPanel = GameObject.Find("GameOver_Panel");
+			//gameOverPanel.SetActive(false); //disable menu at game start
 			
 		}
 		
@@ -38,12 +38,13 @@ public class UI_Manager : MonoBehaviour {
 			if (pausePanel.activeSelf==true)
 			{
 				pausePanel.SetActive(false);
+				Time.timeScale = 1;
 				
 			}
 			else
 			{
 				pausePanel.SetActive(true);
-				
+				Time.timeScale = 0;
 			}
 			
 		}
