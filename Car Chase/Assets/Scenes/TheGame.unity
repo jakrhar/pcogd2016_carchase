@@ -142,7 +142,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 42d4f66ca9cbf4514ab378e23f73ff8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 825658fb1986e92478a0895127334b6f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8700,7 +8700,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 42d4f66ca9cbf4514ab378e23f73ff8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 825658fb1986e92478a0895127334b6f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10577,7 +10577,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59918f6cabf6c84fb434dbfc272a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UI: {fileID: 0}
   scoreText: {fileID: 1026430077}
   restartText: {fileID: 939960571}
   gameOverText: {fileID: 1956328045}
@@ -11401,7 +11400,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1989536538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d19f6e0c13ff4733a70c07e087d18e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 177fe914082199649963ee7650b38016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1989536540
@@ -11440,7 +11439,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1990330201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e0283c7627b4e66b774e2c88263bc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d5dfa0fe98dc0e4eb11b90cd0b28fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   preventPause: 0
