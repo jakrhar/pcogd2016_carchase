@@ -16,7 +16,10 @@ public class GameController : MonoBehaviour {
     public Text restartText;
     public Text gameOverText;
 
+    public string scoreDonutText = "Got a score donut! Points +";
+
     private Leaderboard leaderboard;
+    private PopupSpawner popupSpawner;
 
     public bool isGameOver { get { return gameOver; } }
 
@@ -37,6 +40,12 @@ public class GameController : MonoBehaviour {
         gameOverText.text = "";
 
         leaderboard = GameObject.FindGameObjectWithTag("Leaderboard").GetComponent<Leaderboard>();
+        popupSpawner = GameObject.FindGameObjectWithTag("PopupSpawner").GetComponent<PopupSpawner>();
+
+        if (popupSpawner == null)
+        {
+            Debug.Log("popupSpawner could not be found!");
+        }
 
         var pcars = GameObject.FindGameObjectsWithTag("Seeker");
         if (pcars == null)
@@ -88,6 +97,8 @@ public class GameController : MonoBehaviour {
         {
             score += points;
             UpdateScore();
+            string message = string.Format("Points +{0}", points.ToString());
+            popupSpawner.InstantiateScorePopup(message);
             foreach (var car in policeCars)
             {
                 ExecuteEvents.Execute<IAdjustDifficulty>(car, null, (x, y) => x.AdjustDifficulty(points));
