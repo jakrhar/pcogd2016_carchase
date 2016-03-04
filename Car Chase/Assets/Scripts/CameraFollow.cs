@@ -10,8 +10,8 @@ public class CameraFollow : MonoBehaviour {
 	
 	void LateUpdate() {
 	this.transform.position = new Vector3(
-		Mathf.Clamp(target.transform.position.x + xOffset, -114, 113),
+		Mathf.Clamp(target.transform.position.x + xOffset, -113.5f, 113),
 		target.transform.position.y + yOffset,
-		Mathf.Clamp(target.transform.position.z + zOffset, -198, 197));
+		Mathf.Clamp(target.transform.position.z + zOffset, -198, 196.5f));
 	}
 }
