@@ -38,16 +38,25 @@ public class Leaderboard : MonoBehaviour {
         int[] scores = new int[10];
 
         names[0] = "DonutDestroyer99";
-        scores[0] = 10;
-        names[1] = "AlwaysSecondBest";
-        scores[1] = 8;
-        names[2] = "Diabeetus";
-        scores[2] = 7;
-
-        for(int i = 3; i < 10; i++){
-            names[i] = "Player";
-            scores[i] = 2;
-        }
+        scores[0] = 15;
+		names[1] = "Trevor Philips";
+		scores[1] = 10;
+        names[2] = "Master Chief";
+        scores[2] = 8;
+        names[3] = "Solid Snake";
+        scores[3] = 7;
+		names[4] = "Lara Croft";
+		scores[4] = 6;
+		names[5] = "Nathan Drake";
+		scores[5] = 5;
+		names[6] = "Niko Bellic";
+		scores[6] = 4;
+		names[7] = "Diabeetus";
+		scores[7] = 3;
+		names[8] = "Mickey Mouse";
+		scores[8] = 2;
+		names[9] = "Illusive Man";
+		scores[9] = 1;
 
         BinaryFormatter bf = new BinaryFormatter();
         var folder = Directory.CreateDirectory(Application.persistentDataPath + "/Leaderboard");
@@ -154,6 +163,13 @@ public class Leaderboard : MonoBehaviour {
         var names = LoadNames();
         var scores = LoadScores();
 
+		//Shift the array values from the end to make space for the new element
+		int i;
+		for (i = 8; i >= pos; --i) {
+			names [i + 1] = names [i];
+			scores [i + 1] = scores [i];
+		}
+		//Insert new element
         names[pos] = name;
         scores[pos] = score;
 
