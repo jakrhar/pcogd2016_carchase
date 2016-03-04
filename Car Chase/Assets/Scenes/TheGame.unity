@@ -9968,6 +9968,7 @@ MonoBehaviour:
   restartText: {fileID: 939960571}
   gameOverText: {fileID: 1956328045}
   scoreDonutText: ScoreDonut - Points +
+  donutPickupSound: {fileID: 419070, guid: 68aac58af6fa96843b9b151178202448, type: 2}
 --- !u!4 &1869710607
 Transform:
   m_ObjectHideFlags: 0

@@ -21,13 +21,14 @@ public class SpeedCollectableController : MonoBehaviour
     private bool isInitialized = false;
 
     private PopupSpawner popupSpawner;
+	private AudioSource boostSoundEffect;
 
     /// <summary>
     /// Find game controller and player game objects
     /// </summary>
     void Awake()
     {
-        
+		boostSoundEffect = this.GetComponent<AudioSource>();
     }
 
     void Start()
@@ -88,6 +89,9 @@ public class SpeedCollectableController : MonoBehaviour
 
             //show boost popup text
             popupSpawner.InstantiateBoostPopup("Boost time: ", boostTime);
+
+			//play sound effect
+			boostSoundEffect.Play();
         }
     }
 

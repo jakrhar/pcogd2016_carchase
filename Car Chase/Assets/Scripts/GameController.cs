@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour {
     private GameObject gameOverMenu;
     private PopupSpawner popupSpawner;
 
+	public Transform donutPickupSound;
+	private GameObject donutSoundEffect;
+
     public bool isGameOver { get { return gameOver; } }
 
     private int score;
@@ -94,6 +97,10 @@ public class GameController : MonoBehaviour {
             UpdateScore();
             string message = string.Format("Points +{0}", points.ToString());
             popupSpawner.InstantiateScorePopup(message);
+			// Play sound on donut pickup
+			donutSoundEffect = Instantiate(donutPickupSound).gameObject;
+			Destroy(donutSoundEffect, 2);
+
             foreach (var car in policeCars)
             {
                 ExecuteEvents.Execute<IAdjustDifficulty>(car, null, (x, y) => x.AdjustDifficulty(points));
