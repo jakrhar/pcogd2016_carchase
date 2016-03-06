@@ -41,7 +41,7 @@ public class PopupSpawner : MonoBehaviour
     /// <param name="popupText">text to be displayed + score value added</param>
     public void InstantiateScorePopup(string popupText)
     {
-        var go = GameObject.Instantiate(scorePopup, transform.position, Quaternion.identity) as GameObject;
+        var go = GameObject.Instantiate(scorePopup, Camera.main.WorldToScreenPoint(player.transform.position), Quaternion.identity) as GameObject;
         var popup = go.GetComponent<UnityEngine.UI.Text>();
         popup.text = popupText;
         popup.transform.SetParent(transform);
@@ -55,7 +55,7 @@ public class PopupSpawner : MonoBehaviour
     /// <param name="boostTimeInSeconds">boost time in seconds</param>
     public void InstantiateBoostPopup(string popupText, float boostTimeInSeconds)
     {
-        var go = GameObject.Instantiate(boostPopup, transform.position, Quaternion.identity) as GameObject;
+        var go = GameObject.Instantiate(boostPopup, Camera.main.WorldToScreenPoint(player.transform.position), Quaternion.identity) as GameObject;
         var movementScript = go.GetComponent<BoostPopup>();
         movementScript.popupDelay = boostTimeInSeconds;
         var popup = go.GetComponent<UnityEngine.UI.Text>();
