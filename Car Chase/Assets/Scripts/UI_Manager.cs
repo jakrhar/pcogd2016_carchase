@@ -77,6 +77,11 @@ public class UI_Manager : MonoBehaviour {
 		{
 			Application.LoadLevel (Application.loadedLevel);
 		}
+		
+		// Load given scene
+		public void LoadLevel(string sceneName){
+			Application.LoadLevel (sceneName);
+		}
 	
 	
 
